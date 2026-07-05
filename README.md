@@ -1,19 +1,51 @@
 # Agentic CI/CD Security
 
-A practical security knowledge base and hardening framework for identifying, auditing, and securing CI/CD workflows that integrate AI coding agents, autonomous repository bots, and LLM-powered development automation.
+<p align="center">
+  <img src="./assets/agentic-cicd-banner.png" alt="Agentic CI/CD Security Banner" width="900"/>
+</p>
 
-As AI agents are increasingly granted access to codebases, pull requests, issues, workflow runners, and development tools, they introduce new software supply-chain risks. This repository maps those risks and documents concrete engineering defenses for safer agentic software delivery.
+<p align="center">
+  <strong>A practical security knowledge base and hardening framework for securing AI agents in CI/CD pipelines and autonomous software delivery workflows.</strong>
+</p>
+
+<p align="center">
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+  <a href="./CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg" alt="Contributions Welcome"></a>
+  <a href="https://github.com/ememchijioke/Agentic-cicd-security/stargazers"><img src="https://img.shields.io/github/stars/ememchijioke/agentic-cicd-security?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/ememchijioke/Agentic-cicd-security/issues"><img src="https://img.shields.io/github/issues/ememchijioke/agentic-cicd-security" alt="Open Issues"></a>
+</p>
+
+---
+## Why Agentic CI/CD Security?
+
+AI coding agents are increasingly being integrated into pull request review, issue triage, code modification, documentation generation, testing, and release workflows.
+
+These agents often process **untrusted repository or user-controlled input** while operating near **privileged CI/CD environments**.
+
+That creates a new security boundary.
+
+A malicious pull request, issue comment, markdown file, commit message, or configuration file may influence an AI agent that has access to repository tokens, workflow runners, secrets, shell tools, or deployment paths.
+
+This repository maps those risks and documents practical engineering defenses for safer agentic software delivery.
 
 ---
 
-## Project Roadmap
+## Table of Contents
 
-- [x] Establish Core Threat Model & Attack Vectors
-- [ ] Publish GitHub Actions Enforcement Guidelines (`/checklists`)
-- [ ] Document Vulnerable vs. Hardened Workflow Reference Patterns (`/examples`)
-- [ ] Standardize Core Policy Specifications for Autonomous CI Contexts
-- [ ] Research Automated Detection & Static Analysis Baselines (`AegisCI`)
-
+- [Agentic CI/CD Security](#agentic-cicd-security)
+  - [Why Agentic CI/CD Security?](#why-agentic-cicd-security)
+  - [Table of Contents](#table-of-contents)
+  - [Core Threat Model](#core-threat-model)
+    - [Untrusted Context Flow](#untrusted-context-flow)
+    - [Excessive Token Permissions](#excessive-token-permissions)
+    - [Unsafe Tool Execution](#unsafe-tool-execution)
+    - [Secret Exposure](#secret-exposure)
+    - [Unsafe Output Handling](#unsafe-output-handling)
+  - [Repository Structure](#repository-structure)
+    - [Defensive Tools and Frameworks](#defensive-tools-and-frameworks)
+    - [Standards and Security References](#standards-and-security-references)
+    - [Contributing](#contributing)
+    - [License](#license)
 ---
 
 ## Core Threat Model
@@ -32,7 +64,7 @@ AI agents operating within software delivery pipelines often read untrusted cont
 This creates several distinct risk areas:
 
 ### Untrusted Context Flow
-Poisoned pull request content, malicious markdown, or injected commit messages may attempt to alter agent behavior.
+Poisoned pull requests, malicious markdown, injected commit messages, or hostile documentation may attempt to manipulate agent behavior.
 
 ### Excessive Token Permissions
 Agents may run with repository tokens that allow write access, pull request modification, issue comments, release creation, or workflow changes.
@@ -50,12 +82,23 @@ Agent-generated patches, comments, workflow changes, or release steps may be tru
 
 ## Repository Structure
 
-```text
-.github/workflows/   # CI workflows for validating the repository itself.
-checklists/          # Actionable security checklists for reviewing agentic CI/CD workflows.
-examples/            # Vulnerable and hardened workflow examples.
-threat-models/       # Threat models for common AI-agent software delivery patterns.
-resources/           # Curated tools, standards, papers, and case studies.
+.github/workflows/
+  CI workflows for validating the repository itself.
+
+assets/
+  Images, banners, diagrams, and visual materials used in the project.
+
+checklists/
+  Actionable security checklists for reviewing agentic CI/CD workflows.
+
+examples/
+  Vulnerable and hardened workflow examples.
+
+threat-models/
+  Threat models for common AI-agent software delivery patterns.
+
+resources/
+  Curated tools, standards, papers, blog posts, and case studies.
 ```
 
 ### Defensive Tools and Frameworks
@@ -70,6 +113,21 @@ resources/           # Curated tools, standards, papers, and case studies.
 
 ### Contributing
 Contributions are welcome. Please keep submissions practical, security-focused, and clearly sourced where possible. Review CONTRIBUTING.md for formatting rules.
+Useful contributions include:
+
+* New checklist items
+* Threat models
+* Vulnerable workflow examples
+* Hardened workflow examples
+* Research papers
+* Defensive tools
+* Case studies
+* Corrections to existing guidance
+* Better explanations of attack patterns
+* Safer CI/CD design patterns
+
+
+See CONTRIBUTING.md for contribution guidelines.
 
 ### License
 This project is licensed under the MIT License.
