@@ -99,7 +99,7 @@ threat-models/
 
 resources/
   Curated tools, standards, papers, blog posts, and case studies.
-```
+
 
 ### Defensive Tools and Frameworks
 *   [mcp-context-protector](https://github.com/trailofbits/mcp-context-protector) — A Trail of Bits security wrapper enforcing prompt injection and context manipulation defenses directly at the tool server layer.
@@ -114,7 +114,6 @@ resources/
 ### Contributing
 Contributions are welcome. Please keep submissions practical, security-focused, and clearly sourced where possible. Review CONTRIBUTING.md for formatting rules.
 Useful contributions include:
-
 * New checklist items
 * Threat models
 * Vulnerable workflow examples
