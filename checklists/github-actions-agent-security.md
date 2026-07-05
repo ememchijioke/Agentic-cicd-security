@@ -142,7 +142,7 @@ AI agents often become dangerous when they can combine untrusted input with unre
 - [ ] Scan generated workflow changes before merge.
 - [ ] Avoid letting untrusted input become part of executable commands.
 
-### Risky pattern
+### Risky Tool Execution pattern
 
 ```bash
 ./agent-review --instruction "$PR_BODY" --auto-fix --push-changes
@@ -173,7 +173,7 @@ Secrets should not be available to workflows that process untrusted input.
 - [ ] Review logs for accidental leakage.
 - [ ] Avoid giving agents access to cloud credentials, package registry tokens, or deployment keys unless absolutely required.
 
-### Risky pattern
+### Risky secrete exposure pattern
 
 ```yaml
 env:
