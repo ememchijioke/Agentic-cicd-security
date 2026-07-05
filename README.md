@@ -1,20 +1,19 @@
 # Agentic CI/CD Security
 
 <p align="center">
-  <img src="./assets/agentic-cicd-banner.png" alt="Agentic CI/CD Security Banner" width="900"/>
+  <img src="./assets/agentic-cicd-icon.png" alt="Agentic CI/CD Security Icon" width="420"/>
 </p>
 
 <p align="center">
-  <strong>A practical security knowledge base and hardening framework for securing AI agents in CI/CD pipelines and autonomous software delivery workflows.</strong>
+  <strong>A practical security knowledge base and hardening framework for securing AI agents in CI/CD pipelines.</strong>
 </p>
 
 <p align="center">
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
   <a href="./CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg" alt="Contributions Welcome"></a>
-  <a href="https://github.com/ememchijioke/Agentic-cicd-security/stargazers"><img src="https://img.shields.io/github/stars/ememchijioke/agentic-cicd-security?style=social" alt="GitHub stars"></a>
-  <a href="https://github.com/ememchijioke/Agentic-cicd-security/issues"><img src="https://img.shields.io/github/issues/ememchijioke/agentic-cicd-security" alt="Open Issues"></a>
+  <a href="https://github.com/emenchijoke/agentic-cicd-security/stargazers"><img src="https://img.shields.io/github/stars/emenchijoke/agentic-cicd-security?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/emenchijoke/agentic-cicd-security/issues"><img src="https://img.shields.io/github/issues/emenchijoke/agentic-cicd-security" alt="Open Issues"></a>
 </p>
-
 ---
 ## Why Agentic CI/CD Security?
 
@@ -33,6 +32,7 @@ This repository maps those risks and documents practical engineering defenses fo
 ## Table of Contents
 
 - [Agentic CI/CD Security](#agentic-cicd-security)
+  - [](#)
   - [Why Agentic CI/CD Security?](#why-agentic-cicd-security)
   - [Table of Contents](#table-of-contents)
   - [Core Threat Model](#core-threat-model)
