@@ -1,7 +1,7 @@
 # Agentic CI/CD Security
 
 <p align="center">
-  <img src="./assets/agentic-cicd-banner.png" alt="Agentic CI/CD Security Icon" width="320"/>
+  <img src="./assets/agentic-cicd-banner.png" alt="Agentic CI/CD Security Icon" width="220"/>
 </p>
 
 <p align="center">
