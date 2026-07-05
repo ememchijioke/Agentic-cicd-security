@@ -9,12 +9,16 @@
 </p>
 
 <p align="center">
+  Checklists, threat models, vulnerable workflow examples, hardened patterns, and curated references for safer agentic software delivery.
+</p>
+
+<p align="center">
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
   <a href="./CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg" alt="Contributions Welcome"></a>
   <a href="https://github.com/emenchijoke/agentic-cicd-security/stargazers"><img src="https://img.shields.io/github/stars/emenchijoke/agentic-cicd-security?style=social" alt="GitHub stars"></a>
   <a href="https://github.com/emenchijoke/agentic-cicd-security/issues"><img src="https://img.shields.io/github/issues/emenchijoke/agentic-cicd-security" alt="Open Issues"></a>
 </p>
----
+
 ## Why Agentic CI/CD Security?
 
 AI coding agents are increasingly being integrated into pull request review, issue triage, code modification, documentation generation, testing, and release workflows.
@@ -32,7 +36,6 @@ This repository maps those risks and documents practical engineering defenses fo
 ## Table of Contents
 
 - [Agentic CI/CD Security](#agentic-cicd-security)
-  - [](#)
   - [Why Agentic CI/CD Security?](#why-agentic-cicd-security)
   - [Table of Contents](#table-of-contents)
   - [Core Threat Model](#core-threat-model)
