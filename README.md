@@ -45,6 +45,7 @@ This repository maps those risks and documents practical engineering defenses fo
     - [Secret Exposure](#secret-exposure)
     - [Unsafe Output Handling](#unsafe-output-handling)
   - [Repository Structure](#repository-structure)
+  - [Examples](#examples)
     - [Defensive Tools and Frameworks](#defensive-tools-and-frameworks)
     - [Standards and Security References](#standards-and-security-references)
     - [Contributing](#contributing)
@@ -95,8 +96,21 @@ checklists/
   Actionable security checklists for reviewing agentic CI/CD workflows.
 
 examples/
-  Vulnerable and hardened workflow examples.
+## Examples
 
+The `examples/` directory contains reference implementations showing both insecure and hardened designs.
+
+Current examples:
+
+- [Unsafe PR Agent Review Workflow](examples/vulnerable-workflows/unsafe-pr-agent.yml)
+- [Safer PR Agent Review Workflow](examples/hardened-workflows/safe-pr-agent.yml)
+
+Supporting documentation:
+
+- [Vulnerable Workflow Examples](examples/vulnerable-workflows/README.md)
+- [Hardened Workflow Examples](examples/hardened-workflows/README.md)
+
+The goal is to make security risks visible through practical workflow examples, not only abstract explanations.
 threat-models/
   Threat models for common AI-agent software delivery patterns.
 

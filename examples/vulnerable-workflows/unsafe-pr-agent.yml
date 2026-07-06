@@ -1,0 +1,42 @@
+name: Unsafe PR Agent Review
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: write
+
+jobs:
+  unsafe-agent-review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout pull request code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Run AI review agent with elevated access
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEPLOYMENT_TOKEN: ${{ secrets.DEPLOYMENT_TOKEN }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          echo "Running AI review agent..."
+          echo "Pull request title: $PR_TITLE"
+          echo "Pull request body: $PR_BODY"
+
+          # This is intentionally unsafe.
+          # It represents a risky pattern where an AI agent processes
+          # untrusted pull request content while also having secrets,
+          # write permissions, shell access, and auto-fix capability.
+          ./agent-review \
+            --title "$PR_TITLE" \
+            --body "$PR_BODY" \
+            --auto-fix \
+            --push-changes

@@ -1,0 +1,43 @@
+name: Safer PR Agent Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: read
+
+jobs:
+  safe-agent-review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout pull request code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Run AI review agent in read-only mode
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          echo "Running AI review agent in read-only mode..."
+
+          # This is a safer pattern.
+          # The agent receives untrusted pull request content,
+          # but it does not receive secrets, write permissions,
+          # deployment credentials, or direct push capability.
+          ./agent-review \
+            --title "$PR_TITLE" \
+            --body "$PR_BODY" \
+            --read-only \
+            --output review-report.md
+
+      - name: Upload agent review report
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-review-report
+          path: review-report.md
