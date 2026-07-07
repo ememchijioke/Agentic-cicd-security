@@ -45,16 +45,21 @@ This repository maps those risks and documents practical engineering defenses fo
     - [Secret Exposure](#secret-exposure)
     - [Unsafe Output Handling](#unsafe-output-handling)
   - [Repository Structure](#repository-structure)
+  - [Checklists](#checklists)
+  - [Threat Models](#threat-models)
   - [Examples](#examples)
-    - [Defensive Tools and Frameworks](#defensive-tools-and-frameworks)
-    - [Standards and Security References](#standards-and-security-references)
-    - [Contributing](#contributing)
-    - [License](#license)
+  - [Resources](#resources)
+    - [Initial High-Signal Resources](#initial-high-signal-resources)
+  - [Contributing](#contributing)
+  - [License](#license)
+
 ---
 
 ## Core Threat Model
 
-AI agents operating within software delivery pipelines often read untrusted context while operating near privileged environments. Common untrusted inputs include:
+AI agents operating within software delivery pipelines often read untrusted context while operating near privileged environments.
+
+Common untrusted inputs include:
 
 - Pull request titles and descriptions
 - Issue bodies and comments
@@ -68,24 +73,30 @@ AI agents operating within software delivery pipelines often read untrusted cont
 This creates several distinct risk areas:
 
 ### Untrusted Context Flow
+
 Poisoned pull requests, malicious markdown, injected commit messages, or hostile documentation may attempt to manipulate agent behavior.
 
 ### Excessive Token Permissions
+
 Agents may run with repository tokens that allow write access, pull request modification, issue comments, release creation, or workflow changes.
 
 ### Unsafe Tool Execution
+
 Agents may execute shell commands, run package managers, call external tools, or modify files based on untrusted input.
 
 ### Secret Exposure
+
 Environment variables, API keys, cloud credentials, package registry tokens, and deployment secrets may become visible to agent tools or logs.
 
 ### Unsafe Output Handling
+
 Agent-generated patches, comments, workflow changes, or release steps may be trusted without sufficient human review.
 
 ---
 
 ## Repository Structure
 
+```text
 .github/workflows/
   CI workflows for validating the repository itself.
 
@@ -96,6 +107,53 @@ checklists/
   Actionable security checklists for reviewing agentic CI/CD workflows.
 
 examples/
+  Vulnerable and hardened workflow examples.
+
+threat-models/
+  Threat models for common AI-agent software delivery patterns.
+
+resources/
+  Curated tools, standards, papers, blog posts, and case studies.
+```
+
+---
+
+## Checklists
+
+The `checklists/` directory contains practical, review-friendly security guidance.
+
+Current checklist:
+
+- [GitHub Actions AI Agent Security Checklist](checklists/github-actions-agent-security.md)
+
+Planned checklist topics include:
+
+- GitLab CI/CD agent security checklist
+- Prompt injection review checklist
+- Secrets and permissions checklist
+- Release safety checklist
+- Human approval and review checklist
+
+---
+
+## Threat Models
+
+The `threat-models/` directory contains structured threat models for common AI-agent software delivery use cases.
+
+Current threat model:
+
+- [Pull Request Review Agent Threat Model](threat-models/pr-review-agent.md)
+
+Planned threat models include:
+
+- Issue triage agent
+- Coding agent
+- Documentation generation agent
+- Release automation agent
+- Dependency update agent
+
+---
+
 ## Examples
 
 The `examples/` directory contains reference implementations showing both insecure and hardened designs.
@@ -111,39 +169,61 @@ Supporting documentation:
 - [Hardened Workflow Examples](examples/hardened-workflows/README.md)
 
 The goal is to make security risks visible through practical workflow examples, not only abstract explanations.
-threat-models/
-  Threat models for common AI-agent software delivery patterns.
 
-resources/
-  Curated tools, standards, papers, blog posts, and case studies.
+---
 
+## Resources
 
-### Defensive Tools and Frameworks
-*   [mcp-context-protector](https://github.com/trailofbits/mcp-context-protector) — A Trail of Bits security wrapper enforcing prompt injection and context manipulation defenses directly at the tool server layer.
-*   [Agentic Actions Auditor](https://github.com/trailofbits/skills/tree/main/plugins/agentic-actions-auditor) — Trail of Bits plugin designed to perform static security analysis on GitHub Actions workflows invoking AI coding agents (such as Claude Code or Gemini CLI) to identify injection paths.
-*   [Defenter](https://github.com/example/defenter) — A semantic monitoring proxy designed to sit between CI runners and LLM providers to detect real-time context contamination.
+The `resources/` directory collects high-signal materials related to agentic CI/CD security.
 
-### Standards and Security References
-*   [OWASP Top 10 for Agentic Applications](https://owasp.org/www-project-mcp-top-10/) — The emerging baseline risk framework for agentic applications and systemic integrations.
-*   [Model Context Protocol Specification](https://modelcontextprotocol.io) — Core openspec guidance outlining strict input validation and human-in-the-loop (HITL) baselines.
+Current resource index:
 
+- [Agentic CI/CD Security Resources](resources/README.md)
 
-### Contributing
-Contributions are welcome. Please keep submissions practical, security-focused, and clearly sourced where possible. Review CONTRIBUTING.md for formatting rules.
+Resource categories include:
+
+- Agentic CI/CD security
+- Prompt injection and workflow injection
+- Defensive tools and frameworks
+- Standards and security guidance
+- MCP and tool invocation security
+- Sandboxing and isolation
+- Research papers
+- Case studies and industry writeups
+
+### Initial High-Signal Resources
+
+- [Agentic Actions Auditor](https://trailofbits-skills.mintlify.app/plugins/agentic-actions-auditor) — Trail of Bits guidance for auditing GitHub Actions workflows that invoke AI coding agents.
+- [mcp-context-protector](https://github.com/trailofbits/mcp-context-protector) — A Trail of Bits security wrapper for MCP-based LLM applications.
+- [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) — OWASP’s emerging risk framework for autonomous and agentic AI systems.
+- [Model Context Protocol: Tools Specification](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) — MCP guidance covering tool invocation and human-in-the-loop approval.
+- [GitInject: Real-World Prompt Injection Attacks in AI-Powered CI/CD Pipelines](https://arxiv.org/abs/2606.09935) — Research on prompt injection vulnerabilities in real AI-powered CI/CD workflows.
+
+---
+
+## Contributing
+
+Contributions are welcome.
+
 Useful contributions include:
-* New checklist items
-* Threat models
-* Vulnerable workflow examples
-* Hardened workflow examples
-* Research papers
-* Defensive tools
-* Case studies
-* Corrections to existing guidance
-* Better explanations of attack patterns
-* Safer CI/CD design patterns
 
+- New checklist items
+- Threat models
+- Vulnerable workflow examples
+- Hardened workflow examples
+- Research papers
+- Defensive tools
+- Case studies
+- Corrections to existing guidance
+- Better explanations of attack patterns
+- Safer CI/CD design patterns
 
-See CONTRIBUTING.md for contribution guidelines.
+Please keep contributions practical, security-focused, and clearly sourced where possible.
 
-### License
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+
+---
+
+## License
+
 This project is licensed under the MIT License.
